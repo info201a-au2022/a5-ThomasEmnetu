@@ -21,13 +21,13 @@ ui <-
       tabPanel("Introduction", 
            fluidPage(
              
-             titlePanel("Introductory"),
+             titlePanel("Introduction"),
              hr(),
-             p("Welcome to the Carbon Emission visualisation app! To use this app, "),
+             p("Welcome to A5: Data Applications"),
              p("Carbon dioxide (chemical formula CO2) is a chemical compound made up of molecules that each have one carbon atom covalently double bonded to two oxygen atoms. It is found in the gas state at room temperature."),
-             p("In the air, carbon dioxide is transparent to visible light but absorbs infrared radiation, acting as a greenhouse gas. It is a trace gas in Earth's atmosphere at 417 ppm (about 0.04%) by volume, having risen from pre-industrial levels of 280 ppm.[9][10] Burning fossil fuels is the primary cause of these increased CO2 concentrations and also the primary cause of global warming and climate change.[11] Carbon dioxide is soluble in water and is found in groundwater, lakes, ice caps, and seawater. When carbon dioxide dissolves in water it forms carbonic acid (H2CO3), which causes ocean acidification as atmospheric CO2 levels increase."),
-             p("To understand the county wise increase or decrease in carbon emission, we will analyze owid_co02_data.csv file."),
-             p("The analyze the effect we will consider following variables from the data."),
+             p("In the air, carbon dioxide is transparent to visible light but absorbs infrared radiation, acting as a greenhouse gas. It is a trace gas in Earth's atmosphere at 417 ppm (about 0.04%) by volume, having risen from pre-industrial levels of 280 ppm. Burning fossil fuels is the primary cause of these increased CO2 concentrations and also the primary cause of global warming and climate change. Carbon dioxide is soluble in water and is found in groundwater, lakes, ice caps, and seawater. When carbon dioxide dissolves in water it forms carbonic acid (H2CO3), which causes ocean acidification as atmospheric CO2 levels increase."),
+             p("To understand the county wise increase or decrease in carbon emission, I will analyze the owid_co02_data.csv file with the goal of exploring trends in C02 emissions."),
+             p("To explore/analyze trends I will consider the following variables from the data as they seem highly relevant:"),
              tags$ul(
                tags$li(tags$b("co2_per_capita")),
                tags$li(tags$b("cement_co2")),
@@ -71,7 +71,6 @@ ui <-
                  sidebarLayout(
                    
                    sidebarPanel(
-                     # selector for Country
                      h3("Bar graph of county wise variable analysis"),
                      selectInput(
                        inputId = "select_year",
@@ -120,11 +119,10 @@ ui <-
                      ),
                    ),
                    mainPanel(
-                     # epicurve goes here
                      plotlyOutput("plot_bar_country"),
                      p('Caption : The above bar graph shows the relationship between selected variables of CO2 and year for different countries.In the year 2021 the Co2 per Capita has incresased for all the countries.'),
                      plotlyOutput("plot_line_country"),
-                     p('Caption : The line bar is controlled by the Country, variable for co2 & year range. From yaer 1991 to 2021, almost all the counties have started reocding their co2 varaibles.'),
+                     p('Caption : The line bar is controlled by the Country, variable for co2 & year range. From year 1991 to 2021, almost all the counties have started reocding their co2 varaibles.'),
                      plotlyOutput("plot_group_bar"),
                      p('Caption : Group bar chart for all the co2 related varaibles by country.')
                    )
